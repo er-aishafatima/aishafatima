@@ -1,0 +1,20 @@
+
+package com.example.tts;
+
+import com.sun.speech.freetts.*;
+
+public class TextToSpeechApp {
+    private static final String VOICE_NAME = "kevin16";
+
+    public static void main(String[] args) {
+        Voice voice = VoiceManager.getInstance().getVoice(VOICE_NAME);
+
+        if (voice != null) {
+            voice.allocate();
+            String text = "Hello, this is a text to speech example using Java.";
+            voice.speak(text);
+        } else {
+            System.out.println("Voice not found. Please check FreeTTS setup.");
+        }
+    }
+}
